@@ -2,6 +2,13 @@ __author__ = 'Pavlov_Egor'
 
 
 def thesaurus(some_tuple, key=False):
+    """
+    Receives a tuple and converts it to a dictionary of Names
+    :param some_tuple:
+    :param key: sorting key. False by default
+    :return: dict
+    """
+
     if key:
         some_tuple = sorted(list(some_tuple))
     for name in some_tuple:

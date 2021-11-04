@@ -6,7 +6,11 @@ def get_jokes(list_1, list_2, list_3, flag1=False):
     """
     Returns a list of jokes consisting of the elements of the lists.
     The number of jokes is equal to the minimum list.
-    :flag1: By default, words are repeated.
+    :param list_1:
+    :param list_2:
+    :param list_3:
+    :param flag1: By default, words are repeated.
+    :return: list
     """
 
     if flag1:

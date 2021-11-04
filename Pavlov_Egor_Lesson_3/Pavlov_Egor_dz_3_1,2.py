@@ -2,6 +2,12 @@ __author__ = 'Pavlov_Egor'
 
 
 def num_translate(some_word, some_dict):  # немного усложнил, зато работает для любого словаря. Получилось универсально
+    """
+    :param some_word: word in english for translation
+    :param some_dict: Dictionary. Any can be connected
+    :return: translated word class 'str'
+    """
+
     if some_word.istitle() and some_dict.get(some_word.lower()):  # если первая буква заглавная и слово есть в словаре
         return some_dict.get(some_word.lower()).capitalize()  # нашли "уменьшеный" вариант и вернули "увеличеный"
     return some_dict.get(some_word)  # делаем через ".get" чтобы вернуть None если ничего не нашли
