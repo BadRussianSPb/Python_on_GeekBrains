@@ -1,0 +1,21 @@
+From d1f9a210419729cb0db22c98591f7d28e8fbff8e Mon Sep 17 00:00:00 2001
+From: Egor Pavlov <92115544+BadRussianSPb@users.noreply.github.com>
+Date: Sat, 30 Oct 2021 18:22:47 +0300
+Subject: [PATCH] Initial commit
+
+---
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..28d353d
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++# Python_on_GeekBrains
+\ No newline at end of file
+-- 
+2.33.0.windows.2
+
