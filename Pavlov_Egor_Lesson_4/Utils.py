@@ -54,7 +54,6 @@ def cureency_rates_bs4(ticker_bs4):
         list_of_values = []
         list_of_nominals = []
         dict_of_values = {}
-        dict_of_nominals = {}
         for tickers, values, nominals in zip(content_of_bs.find_all('charcode'),
                                              content_of_bs.find_all('value'),
                                              content_of_bs.find_all('nominal')):
@@ -63,11 +62,11 @@ def cureency_rates_bs4(ticker_bs4):
             list_of_nominals.append(float(nominals.text))  # наполнил список номиналов
         for key, value, value2 in zip(list_of_ticker, list_of_values, list_of_nominals):
             dict_of_values.setdefault(key, []).append(value)    # наполнил справочник курсов
-            dict_of_nominals.setdefault(key, []).append(value2)  # наполнил справочник номиналов. dict in dict никак
+            dict_of_values.setdefault(key, []).append(value2)  # наполнил справочник номиналов. dict in dict никак
         date_of_char = dt.date(dt.strptime(content_of_bs.find('valcurs').get('date'), '%d.%m.%Y'))  # нашел дату
-        value_of_char = dict_of_values.get(ticker_bs4)
-        value_of_nominal = dict_of_nominals.get(ticker_bs4)
-        list_of_answer.extend(['На', date_of_char, 'за', *value_of_nominal, ticker_bs4, *value_of_char, 'RUB'])
+        value_of_char = dict_of_values.get(ticker_bs4)[0]
+        value_of_nominal = dict_of_values.get(ticker_bs4)[1]
+        list_of_answer.extend(['На', date_of_char, 'за', value_of_nominal, ticker_bs4, value_of_char, 'RUB'])
         return list_of_answer
     else:
         return None
@@ -75,7 +74,7 @@ def cureency_rates_bs4(ticker_bs4):
 
 if __name__ == '__main__':
     start_time = time.time()
-    ticker = 'гне'
-    print(cureency_rates_str(ticker))
-    print(cureency_rates_bs4(ticker))
+    ticker = 'usd'
+    print(*cureency_rates_str(ticker))
+    print(*cureency_rates_bs4(ticker))
     print((time.time() - start_time), "s")
